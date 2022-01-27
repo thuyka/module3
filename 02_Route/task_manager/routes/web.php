@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\TaskController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,3 +60,12 @@ Route::prefix('customer')->group(function () {
 Route::get('customers', [CustomerController::class, 'index']);
 
 
+Route::prefix('tasks')->group(function () {
+    Route::get('/', [TaskController::class, 'index'])->name('tasks.index');
+    Route::get('create', [TaskController::class, 'create'])->name('tasks.create');
+    Route::post('store', [TaskCotroller::class, 'store'])->name('tasks.store');
+    Route::get('{taskId}', [TaskController::class, 'show'])->name('tasks.show');
+    Route::get('{taskId}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
+    Route::put('{taskId}', [TaskController::class, 'update'])->name('tasks.update');
+    Route::delete('{photo}', [TaskCOntroller::class, 'destroy'])->name('tasks.destroy');
+});

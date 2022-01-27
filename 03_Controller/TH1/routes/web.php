@@ -3,7 +3,6 @@
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,3 +18,5 @@ Route::get('/', function () {
     return view('index');
 });
 Route::post('/check-email', [UserController::class, 'validationEmail'])->name('check-email');
+
+
